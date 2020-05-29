@@ -18,7 +18,7 @@ namespace Loja.Test.Unit.ValueObjects
 
         [TestMethod]
         public void SucessoQuandoCPFValido(){
-            var documento = new Documento("12345678901", EDocumentoTipo.CPF);
+            var documento = new Documento("625.004.100-13", EDocumentoTipo.CPF);
 
             Assert.IsTrue(documento.Valid);
         }        
