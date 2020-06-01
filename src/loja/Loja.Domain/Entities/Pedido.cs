@@ -7,7 +7,7 @@ namespace Loja.Domain.Entities
 {
     public class Pedido : Entity
     {
-        private IList<PedidoItem> itensDePedido;
+        private List<PedidoItem> itensDePedido;
 
         public Pedido(Cliente cliente)
         {
@@ -20,7 +20,19 @@ namespace Loja.Domain.Entities
 
         public void IncluirItem(Produto produto, int quantidade)
         {
-            itensDePedido.Add(new PedidoItem(produto, quantidade));
+            var item = new PedidoItem(produto, quantidade);
+
+            if(item.Valid)
+                itensDePedido.Add(item);
+
+            AddNotifications(item);
+        }
+
+        public void RemoverItem(Produto produto){
+            
+            var index = itensDePedido.FindIndex(item => item.Produto.Codigo == produto.Codigo);
+
+            itensDePedido.RemoveAt(index);
         }
     }
 }
