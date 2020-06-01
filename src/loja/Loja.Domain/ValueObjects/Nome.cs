@@ -14,9 +14,11 @@ namespace Loja.Domain.ValueObjects
 
             AddNotifications(new Contract()
             .Requires()
-            .HasMinLen(PrimeiroNome, 3, "Nome.PrimeiroNome", "Nome deve conter pelo menos 3 caracteres")
-            .HasMinLen(UltimoNome, 3, "Nome.UltimoNome", "Sobrenome deve conter pelo menos 3 caracteres")
-            .HasMaxLen(PrimeiroNome, 40, "Nome.PrimeiroNome", "Nome deve conter até 40 caracteres"));
+            .HasMinLen(PrimeiroNome, 2, "Nome.PrimeiroNome", "Nome deve conter pelo menos 3 caracteres")
+            .HasMinLen(UltimoNome, 2, "Nome.UltimoNome", "Sobrenome deve conter pelo menos 3 caracteres")
+            .HasMaxLen(PrimeiroNome, 40, "Nome.PrimeiroNome", "Nome deve conter até 40 caracteres")
+            .HasMaxLen(UltimoNome, 40, "Nome.UltimoNome", "Sobrenome deve conter até 40 caracteres"));
+
         }
 
         public override string ToString(){
