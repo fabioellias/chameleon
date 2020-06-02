@@ -20,16 +20,23 @@ namespace Loja.Domain.Entities
 
         public void IncluirItem(Produto produto, int quantidade)
         {
-            var item = new PedidoItem(produto, quantidade);
+            var produtoJaAdicionado = itensDePedido.Any(i => i.Produto.Codigo == produto.Codigo);
 
-            if(item.Valid)
+            AddNotifications(new Contract()
+            .Requires()
+            .IsFalse(produtoJaAdicionado, "Itens.Produto", "Produto já adicionado ao pedido."));
+
+            var item = new PedidoItem(produto, quantidade);
+            if (item.Valid)
                 itensDePedido.Add(item);
+
 
             AddNotifications(item);
         }
 
-        public void RemoverItem(Produto produto){
-            
+        public void RemoverItem(Produto produto)
+        {
+
             var index = itensDePedido.FindIndex(item => item.Produto.Codigo == produto.Codigo);
 
             itensDePedido.RemoveAt(index);
