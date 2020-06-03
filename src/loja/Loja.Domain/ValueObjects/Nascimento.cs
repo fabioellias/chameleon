@@ -12,7 +12,7 @@ namespace Loja.Domain.ValueObjects
 
               AddNotifications(new Contract()
                 .Requires()
-                .IsGreaterThan(DateTime.Now.AddYears(-18), Data, "Nascimento.Data", "Proibido para menores de 18 anos"));
+                .IsLowerOrEqualsThan(Data, DateTime.Now.AddYears(-18), "Nascimento.Data", "Proibido para menores de 18 anos"));
         }
 
         public DateTime Data { get; private set; }        

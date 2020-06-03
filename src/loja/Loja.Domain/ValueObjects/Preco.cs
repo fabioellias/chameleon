@@ -11,8 +11,8 @@ namespace Loja.Domain.ValueObjects
 
             AddNotifications(new Contract()
                 .Requires()
-                .IsGreaterOrEqualsThan(0, Valor, "Preco.Valor", "Valor não pode ser negativo")
-                .IsLowerThan(10000, Valor, "Preco.Valor", "Valor excede o valor máximo")
+                .IsGreaterOrEqualsThan(Valor, 0, "Preco.Valor", "Valor não pode ser negativo")
+                .IsLowerThan(Valor, 1000, "Preco.Valor", "Valor excede o valor máximo")
             );
         }
 

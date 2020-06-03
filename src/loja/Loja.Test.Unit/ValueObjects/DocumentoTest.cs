@@ -10,7 +10,7 @@ namespace Loja.Test.Unit.ValueObjects
     {
 
         [TestMethod]
-        public void CriticaQuandoCPFValido(){
+        public void CriticaQuandoCPFInvalido(){
             var documento = new Documento("123", EDocumentoTipo.CPF);
 
             Assert.IsFalse(documento.Valid);
