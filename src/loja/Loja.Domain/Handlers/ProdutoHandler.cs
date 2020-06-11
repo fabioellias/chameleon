@@ -6,16 +6,16 @@ using Loja.Shared.Handlers;
 
 namespace Loja.Domain.Handlers
 {
-    public class ListarProdutoParaVendaHandler : Notifiable, IHandler<ListarProdutoParaVendaCommand>
+    public class ProdutoHandler : Notifiable, IHandler<ListarProdutoParaVendaCommand>
     {
         private readonly IProdutoRepository produtoRepository;
-        public ListarProdutoParaVendaHandler(IProdutoRepository produtoRepository)
+        public ProdutoHandler(IProdutoRepository produtoRepository)
         {
             this.produtoRepository = produtoRepository;
         }
 
         //ListarProdutoParaVendaCommand
-        public ICommandResult Handle(ListarProdutoParaVendaCommand command)
+        public CommandResult Handle(ListarProdutoParaVendaCommand command)
         {
             var produtos = produtoRepository.ListarProdutoParaVenda();
             return new CommandResult(true, "", produtos);

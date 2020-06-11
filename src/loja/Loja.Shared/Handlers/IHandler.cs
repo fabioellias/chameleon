@@ -1,9 +1,10 @@
 using Loja.Shared.Commands;
+using Loja.Shared.Commands.Types;
 
 namespace Loja.Shared.Handlers
 {
   public interface IHandler<T> where T : ICommand
     {
-        ICommandResult Handle(T command);
+        CommandResult Handle(T command);
     }
 }
