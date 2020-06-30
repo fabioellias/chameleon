@@ -6,5 +6,6 @@ namespace Loja.Domain.Repositories
     public interface IProdutoRepository
     {
          List<Produto> ListarProdutoParaVenda();
+         Produto ObterProdutoPorCodigo(string codigo);
     }
 }

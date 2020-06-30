@@ -1,3 +1,6 @@
+using System.Linq;
+using Flunt.Notifications;
+
 namespace Loja.Shared.Commands.Types
 {
     public class CommandResult : ICommandResult
@@ -8,6 +11,13 @@ namespace Loja.Shared.Commands.Types
         {
             Success = success;
             Message = message;
+            Content = content;
+        }
+
+        public CommandResult(System.Collections.Generic.IReadOnlyCollection<Notification> notifications, object content){
+
+            Success = notifications.Count == 0;
+            Message = string.Join(",", notifications.Select(item => item.Message).ToArray());
             Content = content;
         }
 

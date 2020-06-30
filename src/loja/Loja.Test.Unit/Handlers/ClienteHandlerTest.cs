@@ -87,5 +87,7 @@ namespace Loja.Test.Unit.Handlers
             Assert.IsTrue(result.Success);
             Assert.AreEqual(clientes.First().Id, ((Cliente)result.Content).Id);
         }
+
+        //todo: acrescentar testes para a funcionalidade de cadastro de cliente
     }
 }

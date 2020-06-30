@@ -6,5 +6,6 @@ namespace Loja.Domain.Repositories
     public interface IClienteRepository
     {
          Cliente ObterClientePorEmail(string email);
+         Cliente CadastrarCliente(Cliente cliente);
     }
 }
