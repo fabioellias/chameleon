@@ -21,13 +21,6 @@ namespace Loja.Domain.Handlers
             this.produtoRepository = produtoRepository;
         }
 
-        //ListarProdutoParaVendaCommand
-        // public CommandResult Handle(ListarProdutoParaVendaCommand command)
-        // {
-        //     var produtos = produtoRepository.ListarProdutoParaVenda();
-        //     return new CommandResult(true, "", produtos);
-        // }
-
         public CommandResult Handle(CriarPedidoCommand command)
         {
             var produtos = new List<Produto>();
